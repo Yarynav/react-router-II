@@ -4,6 +4,7 @@ import { Home } from './views/Home';
 import { Pokemones } from './views/Pokemones';
 import { PokemonContext } from './context/PokemonContext';
 import { Pokemon } from './views/Pokemon';
+import { Navbar } from './components/Navbar';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -36,23 +37,7 @@ function App() {
         }}
       >
         <BrowserRouter>
-          <nav className="barra">
-            <NavLink
-              end
-              to="/"
-              className={({ isActive }) => (isActive ? 'active' : '')}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              end
-              to="/pokemones"
-              className={({ isActive }) => (isActive ? 'active' : '')}
-            >
-              Pokemones
-            </NavLink>
-          </nav>
-
+          <Navbar />
           <Routes>
             <Route path="pokemones" element={<Pokemones />} />
             <Route path="pokemon/:name" element={<Pokemon />} />

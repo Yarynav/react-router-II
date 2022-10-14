@@ -20,13 +20,26 @@
   font-size: 20px;
   color: inherit;
   color: white;
-  transition: 0.5s all ease;
+  transition: 0.3s all ease;
   height: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 40px;
 }
 .barra a:hover {
   background-color: #777;
   height: 80px;
   cursor: url(./img/cursor1.png), pointer;
+  border-radius: 0px;
+}
+.barra a.active {
+  font-weight: bold;
+  color: #fff !important;
+  background-color: dodgerblue;
+  height: 80px;
+  border-radius: 0px;
 }
 .pokemon-view {
   display: flex;
@@ -125,13 +138,4 @@
   background-color: dodgerblue;
   color: #fff;
   padding: 3px 10px;
-}
-
-.active {
-  font-weight: bold;
-  color: dodgerblue !important;
-}
-
-.inactive {
-  font-weight: normal;
 }
