@@ -5,6 +5,18 @@
   cursor: url(./img/cursor2.png), pointer;
 }
 
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 1000px;
+  height: 700px;
+  border-radius: 50px;
+  background: #fefffe8a;
+  gap: 30px;
+}
+
 .barra {
   display: flex;
   padding-left: 20px;
@@ -50,7 +62,8 @@
   padding-top: 30px;
   cursor: pointer;
 }
-.Home-views {
+.Home-views,
+.view {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -2,10 +2,10 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { PokemonContext } from '../context/PokemonContext';
+import { PokemonApiContext } from '../context/PokemonApiProvider';
 
 export const Pokemon = () => {
-  const { selectedPokemon } = useContext(PokemonContext);
+  const { selectedPokemon } = useContext(PokemonApiContext);
   // pasarle parametros por url
   const { name } = useParams();
   // redirigir desde el codigo sin usar el componente Link
