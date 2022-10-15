@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PokemonContext } from '../context/PokemonContext';
+import { PokemonApiContext } from '../context/PokemonApiProvider';
 
 export const Pokemones = () => {
   const navigate = useNavigate();
@@ -11,24 +11,29 @@ export const Pokemones = () => {
     setSelectedPokemon,
     setPokemonName,
     pokemonName,
-  } = useContext(PokemonContext);
+    showError,
+  } = useContext(PokemonApiContext);
 
   const getInfo = async () => {
     if (!url) {
       alert('Seleccione un Pokemon');
       return;
     }
-    const res = await fetch(url);
-    const json = await res.json();
-    setSelectedPokemon(json);
-    navigate(`/pokemon/${pokemonName}`);
+    try {
+      const res = await fetch(url);
+      const json = await res.json();
+      setSelectedPokemon(json);
+      navigate(`/pokemon/${pokemonName}`);
+    } catch (e) {
+      showError(e);
+    }
   };
 
   return (
     <div className="pokemon-view">
       <div className="lista">
         <h1>Selecciona un pokemon</h1>
-        {pokemons.length > 0 && (
+        {pokemons && pokemons.length > 0 && (
           <select
             className="select"
             onChange={(e) => {

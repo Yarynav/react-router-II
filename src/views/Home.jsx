@@ -1,21 +1,6 @@
-import { useContext, useEffect } from 'react';
-import { PokemonContext } from '../context/PokemonContext';
+import React from 'react';
 
 export const Home = () => {
-  const { setPokemons } = useContext(PokemonContext);
-
-  /** @description Obtiene el listado inical de Pokemones desde el api */
-  const getPokemons = async () => {
-    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=251');
-    const json = await res.json();
-    setPokemons(json.results);
-  };
-
-  /**@description cuando se carga el componente llamamos al api de pokemon para mostrar el listado */
-  useEffect(() => {
-    getPokemons();
-  }, []);
-
   return (
     <div className="Home-views">
       <div className="fondo">
